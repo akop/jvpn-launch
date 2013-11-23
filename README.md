@@ -1,4 +1,4 @@
 jvpn-launch
 ===========
 
-Launch JPVN with firefox and java 32bit
+Launch JVPN with firefox 18 and java 32bit
