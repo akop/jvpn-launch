@@ -25,7 +25,7 @@ FIREFOX_HOME=$KIS_VPN_HOME/firefox
 echo "pref(\"browser.shell.checkDefaultBrowser\", \"false\");" > $FIREFOX_HOME/defaults/pref/kis-vpn-prefs.js
 echo "pref(\"extensions.enabledScopes\", \"1\");" >> $FIREFOX_HOME/defaults/pref/kis-vpn-prefs.js 
 echo "pref(\"extensions.autoDisableScopes\", \"15\");" >> $FIREFOX_HOME/defaults/pref/kis-vpn-prefs.js 
-echo "pref(\"app.update.auto\", \"false\");>" >> $FIREFOX_HOME/defaults/pref/kis-vpn-prefs.js 
+echo "pref(\"app.update.auto\", \"false\");"  >>  $FIREFOX_HOME/defaults/pref/kis-vpn-prefs.js 
 echo "pref(\"app.update.enabled\", \"false\");" >> $FIREFOX_HOME/defaults/pref/kis-vpn-prefs.js 
 echo "pref(\"app.update.silent\", \"false\");" >> $FIREFOX_HOME/defaults/pref/kis-vpn-prefs.js 
 
