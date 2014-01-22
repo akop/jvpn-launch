@@ -20,6 +20,7 @@ fi
 export JAVA_HOME=$KIS_VPN_HOME/jre
 export PATH=$JAVA_HOME/bin:$PATH
 
+FIREFOX_HOME=$KIS_VPN_HOME/firefox
 # desc: http://kb.mozillazine.org/About:config_entries#Extensions.
 echo "pref(\"browser.shell.checkDefaultBrowser\", \"false\");" > $FIREFOX_HOME/defaults/pref/kis-vpn-prefs.js
 echo "pref(\"extensions.enabledScopes\", \"1\");" >> $FIREFOX_HOME/defaults/pref/kis-vpn-prefs.js 
@@ -27,7 +28,6 @@ echo "pref(\"extensions.autoDisableScopes\", \"15\");" >> $FIREFOX_HOME/defaults
 
 # create firefox profile
 FIREFOX_PROFILE=kis-vpn-profile
-FIREFOX_HOME=$KIS_VPN_HOME/firefox
 test ! -e $KIS_VPN_HOME/$FIREFOX_PROFILE && $FIREFOX_HOME/firefox -CreateProfile "$FIREFOX_PROFILE $KIS_VPN_HOME/$FIREFOX_PROFILE"
 # force plugin scan with new scopes
 test -e $KIS_VPN_HOME/$FIREFOX_PROFILE/pluginreg.dat && rm $KIS_VPN_HOME/$FIREFOX_PROFILE/pluginreg.dat
