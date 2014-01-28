@@ -20,15 +20,28 @@ fi
 export JAVA_HOME=$KIS_VPN_HOME/jre
 export PATH=$JAVA_HOME/bin:$PATH
 
+#export LD_LIBRARY_PATH=/home/andy/kis-vpn/jre/lib/i386/xawt/
+
 FIREFOX_HOME=$KIS_VPN_HOME/firefox
 # desc: http://kb.mozillazine.org/About:config_entries#Extensions.
 echo "pref(\"browser.shell.checkDefaultBrowser\", \"false\");" > $FIREFOX_HOME/defaults/pref/kis-vpn-prefs.js
 echo "pref(\"extensions.enabledScopes\", \"1\");" >> $FIREFOX_HOME/defaults/pref/kis-vpn-prefs.js 
 echo "pref(\"extensions.autoDisableScopes\", \"15\");" >> $FIREFOX_HOME/defaults/pref/kis-vpn-prefs.js 
+# disable auto update
 echo "pref(\"app.update.auto\", \"false\");"  >>  $FIREFOX_HOME/defaults/pref/kis-vpn-prefs.js 
 echo "pref(\"app.update.enabled\", \"false\");" >> $FIREFOX_HOME/defaults/pref/kis-vpn-prefs.js 
 echo "pref(\"app.update.silent\", \"false\");" >> $FIREFOX_HOME/defaults/pref/kis-vpn-prefs.js 
-
+# allow only kaufland.de
+echo "pref(\"network.proxy.no_proxies_on\", \"localhost, 127.0.0.1, .kaufland.de\");" >> $FIREFOX_HOME/defaults/pref/kis-vpn-prefs.js
+echo "pref(\"network.proxy.http\", \"127.0.0.1\");" >> $FIREFOX_HOME/defaults/pref/kis-vpn-prefs.js 
+echo "pref(\"network.proxy.http_port\", 9090);" >> $FIREFOX_HOME/defaults/pref/kis-vpn-prefs.js 
+echo "pref(\"network.proxy.ssl\", \"127.0.0.1\");" >> $FIREFOX_HOME/defaults/pref/kis-vpn-prefs.js 
+echo "pref(\"network.proxy.ssl_port\", 9090);" >> $FIREFOX_HOME/defaults/pref/kis-vpn-prefs.js 
+echo "pref(\"network.proxy.socks\", \"127.0.0.1\");" >> $FIREFOX_HOME/defaults/pref/kis-vpn-prefs.js 
+echo "pref(\"network.proxy.socks_port\", 9090);" >> $FIREFOX_HOME/defaults/pref/kis-vpn-prefs.js 
+echo "pref(\"network.proxy.ftp\", \"127.0.0.1\");" >> $FIREFOX_HOME/defaults/pref/kis-vpn-prefs.js 
+echo "pref(\"network.proxy.ftp_port\", 9090);" >> $FIREFOX_HOME/defaults/pref/kis-vpn-prefs.js 
+echo "pref(\"network.proxy.type\", 1);" >> $FIREFOX_HOME/defaults/pref/kis-vpn-prefs.js 
 # create firefox profile
 FIREFOX_PROFILE=kis-vpn-profile
 test ! -e $KIS_VPN_HOME/$FIREFOX_PROFILE && $FIREFOX_HOME/firefox -CreateProfile "$FIREFOX_PROFILE $KIS_VPN_HOME/$FIREFOX_PROFILE"
